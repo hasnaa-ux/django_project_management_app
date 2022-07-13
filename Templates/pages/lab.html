@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bxs-flask' ></i>&nbsp; All the data about the Lab</h1>
+                 
+                
+            </div>
+            
+        </form>
+         
+                
+        <h3 style="font-size: 24px;
+        color: #0dcaf0;
+        font-family: -webkit-body;
+        font-weight: 600;">
+            
+        Hello {{request.user}}
+    </h3>  
+        
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'labsearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+    
+    <div class="pages_lab">
+        <form method="POST" enctype="multipart/form-data" class="formlab">
+            {% csrf_token %}  
+                    {{lab_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+                    <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                <thead>
+                    <tr class="bg-info">
+                        
+                        <th fulltable-field-name="Id">&emsp;&emsp; Id&emsp; <br></th>
+                        <th fulltable-field-name="Test_type">&emsp;&emsp;Test_type &emsp;<br> </th>
+                        <th fulltable-field-name="Cost">&emsp;&emsp;Cost &emsp;<br> </th>
+                        <th fulltable-field-name="Bio">&emsp;&emsp;&emsp;&emsp; Bio&emsp;&emsp;<br> </th>
+                        <th fulltable-field-name="Options">&emsp;&emsp;&emsp; Options&emsp;&emsp; <br> </th>
+                    
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for l in lab  %}
+                    
+                        <tr>
+                            <th>{{l.Id}}</th>
+                            <th>{{l.Test_type}}</th>
+                            <th>{{l.Cost}}</th>
+                            <th>{{l.Bio}}</th>
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none; animation: none !important;" href="{% url 'lab_update' l.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525; animation: none !important;"><a style="color: white; text-decoration: none;" href="{% url 'lab_delete' l.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+                    
+                </tbody>
+            </table>
+                    </form>
+
+        
+        
+        
+      
+        </div>    
+     
+    
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+{% endblock content %}
+
+
+

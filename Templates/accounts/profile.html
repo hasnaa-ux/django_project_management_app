@@ -1,0 +1,68 @@
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+<section class="section signup register  d-flex flex-column align-items-center justify-content-center py-4" style="min-height: 681px !important">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 mx-auto">
+        
+        <div class="card mb-3" style="    border-color: #d1ebf5;
+        border-width: 2px;">
+        
+            <div class="summery_header" style=" text-align: center;margin: 10px;">
+                <h3 style="    text-align: center; margin: 10px 0;display: inline;">Profile Summery</h3>
+                
+            </div>
+            
+          <div class="card-body">
+
+            <ul>
+                <li style="color: #5dbfe8">Name  : <span style="color: black">{{ profile }}</span></li>
+                  
+                <li style="color: #5dbfe8">Email  : <span style="color: black">{{ profile.user.email }} </span></li>
+                
+                <li style="color: #5dbfe8">phone  : <span style="color: black">{{ profile.phone_number }}</span></li>
+                
+                <li style="color: #5dbfe8">Address : <span style="color: black">{{ profile.city }}</span></li>
+            </ul>
+
+            
+        </div>
+              
+                <div class=p-5 >
+                  
+                    <a style="      
+                    font-size: 19px;
+                    
+                    text-align: center;
+                    font-style: normal;
+                    font-family: cursive;
+                    font-weight: 100;
+                    display: block;
+                    width: 140px !important;
+                    margin: auto;" class="sign-btn btn btn-primary w-100" href="{% url 'accounts:profile_edit' %}">Edit Profile</a>
+
+                </div>
+                
+              
+        <!-- <div class="credits"> -->
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+          <!-- Designed by <a href="#">Our Team</a> -->
+        <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <span>Created By <a href="https://www.facebook.com/mahmoudsyam99/">Our Team</a> | <span class="far fa-copyright"></span>  2022 All rights reserved.</span>
+</footer>
+
+
+{% endblock content %}

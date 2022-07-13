@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bxs-droplet' ></i>&nbsp; All the data about the Blood Status</h1>
+                
+            </div>
+        </form>
+          
+                
+        <h3 style="font-size: 24px;
+        color: #0dcaf0;
+        font-family: -webkit-body;
+        font-weight: 600; ">
+            
+        Hello {{request.user}}
+    </h3>  
+        
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'blosearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+      
+    
+    <div class="pages_blood">
+        <form method="POST" enctype="multipart/form-data" class="formblood">
+            {% csrf_token %}  
+                    {{blood_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+               
+                <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                    
+            <thead>
+                <tr class="bg-info">
+                    
+                    <th fulltable-field-name="Id">&emsp;&emsp; Id&emsp; <br></th>
+                    <th fulltable-field-name="No_packets_used">&emsp;No_packets_used <br></th>
+                    <th fulltable-field-name="No_packets_present">&emsp;&emsp;No_packets_present &emsp;<br> </th>
+                    <th fulltable-field-name="Blood_Group">&emsp; &emsp;Blood_Group &emsp;<br> </th>                   
+                    <th fulltable-field-name="Options">&emsp; &emsp;Options &emsp;<br> </th>
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in blood  %}
+                    
+                <tr class="table-light">
+                            <th>{{b.Id}}</th>
+                            <th>{{b.No_packets_used}}</th>
+                            <th>{{b.No_packets_present}}</th>
+                            <th>{{b.Blood_Group}}</th>
+                            
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'blood_update' b.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'blood_delete' b.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+            </tbody>    
+            
+            
+        </table>
+      </form>     
+
+        
+        
+        
+      
+        </div>    
+     
+    
+    
+    
+        <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+
+
+{% endblock content %}
+
+
+

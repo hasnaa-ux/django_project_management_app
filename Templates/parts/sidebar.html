@@ -1,0 +1,110 @@
+{% load bootstrap4 %}
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="{% url 'admin' %}" class="brand">
+			<i class='bx bx-plus-medical'></i>
+			<span class="text">Hospital</span>
+		</a>
+		<ul class="side-menu top">
+			
+			<li>
+				<a href="{% url 'department' %}">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Department</span>
+				</a>
+			</li>
+			<li>
+				<a href="{% url 'doctor' %}">
+				<i class='bx bx-male'></i>
+					<span class="text">Staff</span>
+				</a>
+			</li>
+            
+            <li>
+				<a href="{% url 'patient' %}">
+					<i class='bx bx-accessibility' ></i>
+					<span class="text">Patient</span>
+				</a>
+			</li>
+            
+            <li>
+				<a href="{% url 'medicine' %}">
+					<i class='bx bxs-capsule' ></i>
+					<span class="text">Medicine</span>
+				</a>
+			</li>
+            
+            
+            <li>
+				<a href="{% url 'employee' %}">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Employees</span>
+				</a>
+			</li>
+            <li>
+				<a href="{% url 'blood' %}">
+					<i class='bx bxs-droplet' ></i>
+					<span class="text">Blood status</span>
+				</a>
+			</li>
+            <li>
+				<a href="{% url 'room' %}">
+					<i class='bx bxs-home' ></i>
+					<span class="text">Room</span>
+				</a>
+			</li>
+            {% comment %} <li>
+				<a href="{% url 'bed' %}">
+					<i class='bx bxs-hotel' ></i>
+					<span class="text">Bed</span>
+				</a>
+			</li> {% endcomment %}
+            
+			<li>
+				<a href="{% url 'machiens' %}">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Machines</span>
+				</a>
+			</li>
+			<li>
+				<a href="{% url 'lab' %}">
+					<i class='bx bxs-flask' ></i>
+					<span class="text">Lab</span>
+				</a>
+			</li>
+			<li>
+				<a href="{% url 'birth' %}">
+					<i class='bx bxs-user-plus' ></i>
+					<span class="text">Birth</span>
+				</a>
+			</li>
+            	<li>
+				<a href="{% url 'death' %}">
+					<i class='bx bxs-user-minus' ></i>
+					<span class="text">Death</span>
+				</a>
+			</li>
+            <li>
+				<a href="{% url 'floor' %}">
+					<i class='bx bxs-business' ></i>
+					<span class="text">Floor</span>
+				</a>
+			</li>
+            <li>
+				<a href="{% url 'invoice' %}">
+					<i class='bx bxs-detail' ></i>
+					<span class="text">Invoice</span>
+				</a>
+			</li>
+			<li>
+				<a href="{% url 'logoutdashboard' %}">
+					<i class='bx bxs-log-out'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+			
+            
+		</ul>
+		
+	</section>
+	<!-- SIDEBAR -->

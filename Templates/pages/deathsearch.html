@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    
+    <br>
+    {% if searched %}
+    <div class="summery_header" style=" text-align: center;margin: 10px;">
+        <h2 style="    text-align: center; margin: 10px 0;display: inline;">" You Searched For {{searched}} "</h2>
+        <a href="{% url 'death' %}" style="float: right;font-size: 19px;background-color: #5dbfe8;color: white;width: 27px;
+                                            height: 27px;
+                                            border-radius: 50%;
+                                            text-align: center;
+                                            margin-right: 17px;">
+          <i class='bx bx-arrow-back'></i>
+           
+        </a>  
+    </div>
+    <br>
+    <table style="text-align:center">
+        <thead>
+            <tr class="bg-info">
+                
+                <th fulltable-field-name="Id">&emsp;&emsp; Id&emsp; <br></th>
+                <th fulltable-field-name="gender">&emsp;Gender <br></th>
+                <th fulltable-field-name="Birth_Date">&emsp;&emsp;Birth_Date &emsp;<br> </th>
+                <th fulltable-field-name="Death_time">&emsp; &emsp;Death_time &emsp;<br> </th>
+                <th fulltable-field-name="Death_Date">&emsp; &emsp;Death_Date &emsp;<br> </th>
+                
+                
+                
+            
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for venue in venues   %}
+                <tr class="bg-warning">
+                    <th>{{venue.Id}}</th>
+                    <th>{{venue.Gender}}</th>
+                    <th>{{venue.Birth_Date}}</th>
+                    <th>{{venue.Death_time}}</th>
+                    <th>{{venue.Death_Date}}</th>
+                    
+                <tr>    
+            
+            {% endfor %}
+        </tbody> 
+    </table>     
+    {% else %}
+    <div class="summery_header" style=" text-align: center;margin: 10px;">
+        <h2 style="    text-align: center; margin: 10px 0;display: inline;">" Hey! you Forget To Search "</h2>
+        <a href="{% url 'death' %}" style="float: right;font-size: 19px;background-color: #5dbfe8;color: white;width: 27px;
+                                            height: 27px;
+                                            border-radius: 50%;
+                                            text-align: center;
+                                            margin-right: 17px;">
+          <i class='bx bx-arrow-back'></i>
+           
+        </a>  
+    </div>
+    {% endif %}
+
+ 
+
+</center>
+
+{% endblock content %}
+
+
+
+
+
+
+   

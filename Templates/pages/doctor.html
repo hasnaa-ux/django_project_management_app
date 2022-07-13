@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bx-male' ></i>&nbsp; All the data about the Staff</h1>
+                
+            </div>
+        </form>
+          
+                
+        <h3 style="font-size: 24px;
+        color: #0dcaf0;
+        font-family: -webkit-body;
+        font-weight: 600;">
+            
+        Hello {{request.user}}
+    </h3>  
+        
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'docsearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+      
+    
+    <div class="pages_doctor">
+        <form method="POST" enctype="multipart/form-data"class="formstaff" >
+            {% csrf_token %}  
+                    {{doctor_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+               
+                <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                    
+            <thead>
+                <tr class="bg-info">
+                    
+                    <th fulltable-field-name="Id">&emsp;&emsp; Id&emsp; <br></th>
+                    <th fulltable-field-name="Name">&emsp;Name <br></th>
+                    <th fulltable-field-name="Email">&emsp;&emsp;Email &emsp;<br> </th>
+                    <th fulltable-field-name="Gender">&emsp; &emsp;Gender &emsp;<br> </th>
+                    <th fulltable-field-name="Salary">&emsp; &emsp;Salary &emsp;<br> </th>
+                    <th fulltable-field-name="Address">&emsp;&emsp; Address&emsp; <br></th>
+                    <th fulltable-field-name="Phone">&emsp;Phone <br></th>
+                    <th fulltable-field-name="Status_from_Date">&emsp;&emsp;Status_from_Date &emsp;<br> </th>
+                    <th fulltable-field-name="Status_to_Date">&emsp; &emsp;Status_to_Date &emsp;<br> </th>
+                    <th fulltable-field-name="Image">&emsp; &emsp;Image &emsp;<br> </th>
+                    <th fulltable-field-name="Bio">&emsp; &emsp;Bio &emsp;<br> </th>
+                    <th fulltable-field-name="department_id">&emsp; &emsp;Department &emsp;<br> </th>
+                    <th fulltable-field-name="Options">&emsp; &emsp;Options &emsp;<br> </th>
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for doc in doctor %}                    
+                        <tr class="table-light">
+                            <th>{{doc.Id}}</th>
+                            <th>{{doc.Name}}</th>
+                            <th>{{doc.Email}}</th>
+                            <th>{{doc.Gender}}</th>
+                            <th>{{doc.Salary}}</th>
+                            <th>{{doc.Address}}</th>
+                            <th>{{doc.Phone}}</th>
+                            <th>{{doc.Status_from_Date}}</th>
+                            <th>{{doc.Status_to_Date}}</th>
+                            <th>{{doc.Image}}</th>
+                            <th>{{doc.Bio}}</th>
+                            <th>{{doc.Department}}</th>
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'doctor_update' doc.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'doctor_delete' doc.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+            </tbody>    
+            
+            
+        </table>
+      </form>     
+
+        
+        
+        
+      
+        </div>    
+     
+    
+    
+    
+        <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+                <i class='bx bx-menu' ></i>
+            
+                <form action="#">
+                    
+                    <div class="form-input">
+                        
+                        
+                        <h1 class="h"><i class='bx bxs-doughnut-chart' ></i>&nbsp; All the data about the Machiens</h1>
+                        
+                        
+                    </div>
+                    
+                </form>
+                
+                <h3 style="font-size: 24px;
+                color: #0dcaf0;
+                font-family: -webkit-body;
+                font-weight: 600;">
+                    
+                Hello {{request.user}}
+            </h3>  
+                
+                
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'machsearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search with name" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+
+    <div class="pages_Machines">
+        <form method="POST" enctype="multipart/form-data" class="formmach">
+            {% csrf_token %}  
+                    {{mach_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+               
+                <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                    
+            <thead>
+                <tr class="bg-info">
+                    <th fulltable-field-name="Id">&emsp;&emsp;Id&emsp; <br></th>
+                    <th fulltable-field-name="Name">&emsp;&emsp;Name&emsp; <br></th>
+                    <th fulltable-field-name="Department_id">&emsp;&emsp;&emsp;Department&emsp;<br> </th>
+                    <th fulltable-field-name="Options">&emsp;&emsp;&emsp;Options&emsp;<br> </th>
+                
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for ma in machiens %}
+                    
+                <tr class="table-light">
+                            <th>{{ma.Id}}</th>
+                            <th>{{ma.Name}}</th>
+                            <th>{{ma.department_id}}</th>
+                            <th>                           
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'machiens_update' ma.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'machiens_delete' ma.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                {% endfor %} 
+            </tbody>    
+        </table>
+                </form>
+
+        
+        
+        
+      
+    </div>    
+     
+    
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+
+{% endblock content %}
+
+
+

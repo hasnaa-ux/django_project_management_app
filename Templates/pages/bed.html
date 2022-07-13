@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+		
+			<form action="#">
+                
+				<div class="form-input">
+                    
+                    
+					<h1 class="h"><i class='bx bxs-hotel' ></i>&nbsp; All the data about the Beds</h1>
+                     
+                    
+				</div>
+                
+			</form>
+             
+                    
+		 <a href="admein.html" class="btn">
+					Admin Home
+				</a>
+				
+			
+			
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main></main>
+        
+        
+    <div class="pages_bed">
+			  <form method="POST" enctype="multipart/form-data" >
+				{% csrf_token %}  
+						{{bed_form}}
+						<button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+				   
+					<table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+						
+						<thead>
+							<tr>
+								<th fulltable-field-name="id">&emsp;&emsp;Id&emsp; <br></th>
+											
+								 <th fulltable-field-name="Alloted_Time">&emsp;&emsp;Alloted_Time<br> </th>
+								<th fulltable-field-name="Discharge_Time">&emsp;&emsp;Discharge_Time<br> </th>
+								<th fulltable-field-name="Options">&emsp; &emsp;Options &emsp;<br> </th>  
+								 
+							  
+				
+							</tr>
+						</thead>
+				<tbody>
+					{% for b in bed  %}
+						
+							<tr>
+								<th>{{b.Id}}</th>
+								
+								
+								<th>{{b.Discharge_Time}}</th>
+								<th>
+									<button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'bed_update' b.id %}">Update</a></button>
+									<button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'bed_delete' b.id %}">Delete</a></button>
+								</th>
+							</tr>
+						
+					{% endfor %} 
+				</tbody>    
+			</table>
+		  </form>     
+
+    </div>    
+         
+		
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+{% endblock content %}
+
+

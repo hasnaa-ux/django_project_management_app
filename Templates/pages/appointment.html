@@ -1,0 +1,49 @@
+{% extends 'base2.html'%}
+
+{% comment %} {% extends 'base1.html'%} {% endcomment %}
+<head>
+  <style>
+    #appointment .form-control {
+      display: inline-block;
+      width: 19% !important;}
+  </style>
+</head>
+
+{% block content %}
+
+
+
+    
+    <!-- start appointment -->
+    <section id="appointment" class="appointment section-bg">
+        <div class="container">
+          <div class="appoint-ment title">
+            <h2>Make an Appointment</h2>
+          </div>
+          <p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+          <form method="POST" action="#"  role="form" class="php-email-form appointform">
+            {% csrf_token %}
+            {{appointment_form}}
+
+           
+  
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message (Optional)" style="width: 100% !important;"></textarea>
+              <div class="validate"></div>
+            </div>
+            <!-- <div class="mb-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+            </div> -->
+            
+              <input class="sign-btn btn btn-primary w-100" type="submit" value="Make An Appointment">
+              
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- end appointment -->
+
+
+{% endblock content%}

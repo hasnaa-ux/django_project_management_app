@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bxs-capsule' ></i>&nbsp; All the data about the Medicine</h1>
+                
+            </div>
+        </form>
+          
+                
+        <h3 style="font-size: 24px;
+        color: #0dcaf0;
+        font-family: -webkit-body;
+        font-weight: 600; ">
+            
+        Hello {{request.user}}
+    </h3>  
+        
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    
+      <center style="text-align: end; margin-bottom: 10px;">
+          <form class="" method="POST" action="{% url 'searchbar' %}" >
+            {% csrf_token %} 
+              <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+              width: 23%;"/>
+              <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+          </form>    
+      </center>
+    
+    <div class="pages_Medicine">
+        <form method="POST" enctype="multipart/form-data" class="formmed">
+			{% csrf_token %}  
+			{{medicine_form}}
+			<button type="submit" class="btn btn-primary" style="margin: 7px 13px;line-height: 1.3;" >add</button>
+	   
+		<table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                    
+            <thead>
+                <tr class="bg-info">
+                    
+                    <th fulltable-field-name="Code">&emsp;&emsp; Code&emsp; <br></th>
+                    <th fulltable-field-Name="Name">&emsp;Name <br></th>
+                    <th fulltable-field-name="Aviable or not ">&emsp;&emsp;Avilable_or_not &emsp;<br> </th>
+                    <th fulltable-field-name="Bio">&emsp; &emsp;Cost_per_unit &emsp;<br> </th>
+					<th fulltable-field-name="Options">&emsp; &emsp;Options &emsp;<br> </th>
+                    
+                    
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in medicine %}
+                    
+                <tr class="table-light">
+                            <th>{{m.Code}}</th>
+                            <th>{{m.Name}}</th>
+                            <th>{{m.Avilable_or_not}}</th>
+                            <th>{{m.Cost_per_unit}}</th>
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'medicine_update' m.Code %}" >Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none" href="{% url 'medicine_delete' m.Code %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+            </tbody>    
+            
+            
+        </table>
+      </form>     
+
+        
+        
+        
+      
+        </div>    
+     
+    
+    
+    
+        <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+
+
+{% endblock content %}
+
+
+

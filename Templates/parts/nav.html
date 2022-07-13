@@ -1,0 +1,43 @@
+{% load static %}
+<!--Start nav-->
+<div class="mynav ">
+    <div class="max-width">
+        <div class="main-logo">
+            <div class="logo">
+                 <img src="{% static 'images/Icon.png'%}" alt="logo">
+            </div>
+            <div class="main-text">
+                <a href="{% url 'index'%}">HealthCare</a>
+            </div>  
+        </div>
+        <ul class="menu">
+            <li><a href="#home" class="menu-btn">Home</a></li>
+            <li><a href="#about" class="menu-btn">About</a></li>
+            <li><a href="#services" class="menu-btn">Services</a></li>
+            <li><a href="#departments" class="menu-btn">Departments</a></li>
+            <li><a href="#teams" class="menu-btn">Staff</a></li>
+            <li><a href="#contact" class="menu-btn">Contact</a></li>
+            <li>
+                {% if request.user.is_authenticated %}
+                 <a href="{% url 'admin' %}" class="log-in">DashBoard</a> 
+                 {% endif %}
+            </li>            <li>
+                <h3 style="font-size: 24px;
+                    color: #0dcaf0;
+                    font-family: -webkit-body;
+                    font-weight: 600;    padding-left: 52px;">Hello {{request.user}} 
+                </h3>
+            </li>
+            <li>
+                {% if request.user.is_authenticated %}
+                 <a href="{% url 'logoutdashboard' %}" class="log-in">logout</a> 
+                 {% endif %}
+            </li>
+            <li><a href="{% url 'appointment'%}" class="btn menu-btn">Appointment</a></li>
+        </ul>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</div>
+<!--End mynav-->

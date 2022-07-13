@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- CONTENT -->
+<section id="content">
+    <div style="direction: ltr;" class="wrapper">
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div   class="content-wrapper">
+        <!-- Content Header (Page header) -->
+    <div  class="card card-danger">
+        <div class="card-header">
+            <h3 class="card-title">Delete Room </h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form  method="POST" enctype="multipart/form-data">
+            {% csrf_token %} 
+            {{room_form}}
+            <div class="row">
+            
+        <p class="p-3" style="margin-left: 16px;">   Are you sure?</p>
+    
+            </div>
+            <!-- /.card-body -->
+    
+            <div class="card-footer">
+            <button type="submit" class="btn btn-danger">Yes, I am sure</button>
+    
+            <a href="{% url 'room' %}" type="submit" class="btn btn-success">No, take me back</a>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+{% endblock content %}  
+  

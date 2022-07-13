@@ -1,0 +1,66 @@
+{% extends 'base_generic.html' %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+ 
+ </style>
+</head>
+<body>
+{% block content %}
+
+<section class="section signup register  d-flex flex-column align-items-center justify-content-center py-4"style="min-height: 681px !important">
+    <div class="container" style="    overflow: hidden;">
+      <div class="row justify-content-center" style="margin: 92px 0;">
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+          
+          <div class="card mb-3" style="    border-color: #d1ebf5;
+          border-width: 2px;">
+  
+            <div class="card-body"  >
+                <h4 style="    text-align: center;     margin: 10px 0;">Edit Profile</h4>
+                    <form method="POST" enctype="multipart/form-data" style=" color: #5dbfe8;">
+                        {% csrf_token %}
+                        {% bootstrap_form userform %}
+                        {% bootstrap_form profileform %}
+                        {% buttons %}
+                        <button style="      
+                        font-size: 19px;
+                        
+                        text-align: center;
+                        font-style: normal;
+                        font-family: cursive;
+                        font-weight: 100;
+                        display: block;
+                        width: 120px !important;
+                        margin: auto; border: 2px solid var(--main-color) !important;
+                        animation: none;
+                        color: white;
+                        background-color: #5dbfe8;
+                        border-radius: 5px;
+                        padding: 4px 0;
+                        margin-top: 11px; " class="boxed-btn3 w-100" type="submit">Save</button>
+                        {% endbuttons %}
+
+                    </form>
+                   
+          </div>
+        </div>
+
+     
+      </div>
+    </div>
+  </div>
+
+<footer style="width:100%; bottom: 0px;position: absolute;">
+  <span>Created By <a href="https://www.facebook.com/mahmoudsyam99/">Our Team</a> | <span class="far fa-copyright"></span>  2022 All rights reserved.</span>
+</footer>
+
+{% endblock content %}
+
+
+</body>
+</html>
+
+

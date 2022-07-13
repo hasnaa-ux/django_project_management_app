@@ -1,0 +1,23 @@
+{% load static %}
+
+<!--Start nav-->
+<div class="mynav nav-fixed">
+    <div class="max-width">
+        <div class="main-logo">
+            <div class="logo">
+                 <img src="{% static 'images/Icon.png'%}" alt="logo">
+            </div>
+            <div class="main-text">
+                 <a href="{% url 'index' %}">HealthCare</a>
+            </div>  
+        </div>
+        <ul class="menu">
+           
+            <li><a href="{% url 'appointment'%}" class="btn menu-btn">Appointment</a></li>
+        </ul>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</div>
+<!--End mynav-->

@@ -1,0 +1,519 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+
+
+{% block content %}
+
+<!--Start Home-->
+<section class="home" id="home">
+    <div class="overlay"></div>
+    <div class="max-width">
+        <div class="home-content">
+            <div class="text-1">The Most Valuble Thing is your Health</div>
+            <div class="text-2">TOGETHER, WE CAN</div>
+            <div class="text-3">And We have <span class="typing">Better Doctor</span></div>
+            {% comment %} <a href="{% url 'signup'%}" class="sign-up">Sign Up</a> {% endcomment %}
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'accounts:profile/'%}" class="log-in">Profile</a>
+            
+            {% else %}
+            <a href="{% url 'login'%}" class="log-in">log In</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!--end Home-->
+<!-- ======= Why Us Section ======= -->
+<div id="why-us" class="why-us">
+    <div class="max-width">
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="content">
+            <h3>Why Choose Health Care?</h3>
+            <p>
+              Our reputation for outstanding care and family-like atmosphere, together with advanced medical technology 
+              and facilities ensures we attract leading consultants and specialists from the industry to work with us .
+            </p>
+            {% comment %} <div class="text-center">
+              <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+            </div> {% endcomment %}
+          </div>
+        </div>
+        <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="icon-boxes d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="box col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fa-solid fa-book-medical"></i>
+                    <h4>Health Care</h4>
+                  <p>All our clinicians are board-certified and come with very high credentials within their field of speciality .</p>
+                </div>
+              </div>
+              <div class="box col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fas fa-notes-medical"></i>
+                  <h4>Health Care</h4>
+                  <p> we are committed to providing our patients with advanced medical 
+                    and surgical treatments with access to the latest treatment technology available.</p>
+                </div>
+              </div>
+              <div class="box col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                    <i class="fas fa-file-medical"></i>
+                  <h4>Health Care</h4>
+                  <p>Our expert team of doctors and nurses are available to round the clock to monitor the progress of our patients .</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- End content-->
+        </div>
+      </div>
+
+    </div>
+</div>
+  <!-- End Why Us Section -->
+<!-- about section start  -->
+<section class="about" id="about">
+    <div class="max-width">
+        <h2 class="title">About Us</h2>
+        <div class="about-content">
+            <div class="mycolumn left">
+                <img src="{% static 'images/about.jpg' %}" alt="">
+            </div>
+            <div class="mycolumn right">
+                <div class="text">we Are The Best and we have <span class="typing-2"></span></div>
+                <div class="text-check">
+                    <div class="first-icon icon">
+                        <i class="fa fa-check"></i>
+                        <p>
+                            Our highly-skilled and dedicated nurses are available round the clock to serve our patients anytime of the day.
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-check"></i>
+                        <p>
+                            our certified caregivers have undergone extensive training to provide high quality service expected by our customers.
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-check"></i>
+                        <p>
+                            only want the very best for our patients. That is why you can only expect excellence, dedication and quality care from us.
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-check"></i>
+                        <p>
+                          Strong is an exemplary teaching hospital with advanced scientific proficiencies, 
+                          robust patient care services, and formidable community relations.   
+                        </p>
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-check"></i>
+                      <p>
+                        we have access to over 1bn data points including companies, deals, projects and forecasts and trends. 
+                      </p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-check"></i>
+                    <p>
+                        We invest in cutting-edge point-of-care technologies that collect and combine data and allow enhanced and more efficient care
+                    </p>
+                </div>
+                
+                </div>
+            </div>
+    </div>
+</section>
+<!-- End about section -->
+<!-- Services section start  -->
+<section class="services" id="services">
+    <div class="max-width">
+        <h2 class="title">Our Services</h2>
+        <div class="serv-content">
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-heartbeat"></i>
+                    <div class="text">Operations Services</div>
+                    <p>The operational slice is comprised of a wide variety of support services, including biomedical 
+                      engineering, facilities engineering, equipment distribution, environmental services, 
+                      linens, dietary, courier service, security, IT, and others .</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-hospital-user"></i>
+                    <div class="text">Cleaning  Service</div>
+                    <p>Critical or high risk areas: clean rooms: Operating rooms, recovery rooms. Delivery rooms. ICU. Sterilization.
+                      <br>
+                      Management and administration. Doctors’ staff room. Archive of medical records . Public areas. Kitchens, 
+                      dining rooms, offices. Laundry.
+                       
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-dna"></i>
+                    <div class="text">Hospital Services</div>
+                    <p>Clinical management Patient encounters and consultations Clinical administration Clinical audit Clinical
+                       services Investigative services Treatment Pharmacy Dietetics Social work General management POSD-COB.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-wheelchair"></i>
+                    <div class="text">Support Services</div>
+                    <p>Support Services in Hospital, are the services which are not directly related
+                       to patient care but, indirectly contribute in patient management .</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-notes-medical"></i>
+                    <div class="text">Finance Services</div>
+                    <p>The financial piece includes billing, accounts receivable, accounts payable and purchasing/supply chain/materials management, all important aspects
+                       of managing the financial health and prosperity of a hospital.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-pills"></i>
+                    <div class="text">Pharmacy  Services</div>
+                    <p>Organization and management of the pharmacy warehouse. 
+                      Medicine distribution system . Purchase of medicine. Traceability. Patient safety..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======= Departments Section ======= -->
+
+<section id="departments" class="departments">
+  <div class="max-width">
+
+      <h2 class="title">Departments</h2>
+      
+    <div class="row gy-4">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-9">
+        <div class="tab-content">
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row gy-4">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Cardiology</h3>
+                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'images/departments/departments-1.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-2">
+            <div class="row gy-4">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Et blanditiis nemo veritatis excepturi</h3>
+                <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'images/departments/departments-2.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-3">
+            <div class="row gy-4">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'images/departments/departments-3.jpg'%}" alt="" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-4">
+            <div class="row gy-4">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
+                <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
+                <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'images/departments/departments-4.jpg'%}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-5">
+            <div class="row gy-4">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
+                <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                <img src="{% static 'images/departments/departments-5.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- End Departments Section -->
+
+
+
+
+
+  <!-- teams section start  -->
+<section class="teams" id="teams">
+    <div class="max-width">
+        <h2 class="title">Our Staff</h2>
+        <p style="text-align:center;margin-bottom: 3rem;">There are many people who contribute to your care while you are in hospital.</p>
+        <div class="serv-content" style="    display: flex; flex-wrap: wrap; justify-content: space-between;">    
+          
+          
+          
+          
+          <div class="carousel owl-carousel">
+              <div class="card">
+                  <div class="box">
+                      <img src="{% static 'images/doctors/doctors-1.jpg'%}" alt=""> 
+                      <div class="text">Ahmed khaled</div>
+                      <p>Consultant orthopedic surgery and spine surgery , joints, and shoulder.</p>
+                  </div>
+              </div>
+              <div class="card">
+                <div class="box">
+                    <img src="{% static 'images/doctors/doctors-2.jpg'%}" alt=""> 
+                    <div class="text">Marwa Othman</div>
+                    <p>Master degree in gynecology and obstetrics from Ain Shams university MRCOG from London.
+                       Ethetic gynecology diploma American Association</p>
+                </div>
+            </div>
+            <div class="card">
+              <div class="box">
+                  <img src="{% static 'images/doctors/doctors-3.jpg'%}" alt=""> 
+                  <div class="text">Mohamed El Melegy</div>
+                  <p>istones extractions by traditional or flexable ureteroscoy and laser vaporization of prostate by laser radical.</p>
+              </div>
+          </div>
+          <div class="card">
+            <div class="box">
+                <img src="{% static 'images/doctors/doctors-4.jpg'%}" alt=""> 
+                <div class="text">Sally Magdy Elboghdady	</div>
+                <p>Consultant Thoracic and Respiratory Medicine & Professor at the Faculty of Chest and Respiratory Diseases.</p>
+            </div>
+        </div>
+        <div class="card">
+          <div class="box">
+              <img src="{% static 'images/doctors/doctors-3.jpg'%}" alt=""> 
+              <div class="text">Emad Mounir	</div>
+              <p>Consultant of Urology & Urology Surgery and Laser Lithotripsy
+                 - Member of the Egyptian Association of Urological Sugeries 
+                - Member of the European Society for Urological Surgeries</p>
+          </div>
+      </div>
+        
+      </div>
+            {% comment %} {% endfor%}        {% endcomment %}
+          </div>
+
+        </div>              
+  
+    </div>
+  </div>
+</section>
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery">
+    <div class="max-width">
+
+      <div class="section-title">
+        <h2 style="margin-bottom: 53px;" class="title" >Our Gallery</h2>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row g-0">
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-1.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-1.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-2.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-2.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-3.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-3.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-4.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-4.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-5.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-5.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-6.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-6.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-7.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-7.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{% static 'images/gallery/gallery-8.jpg'%}" class="galelry-lightbox">
+              <img src="{% static 'images/gallery/gallery-8.jpg'%}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End Gallery Section -->
+<!-- contact section -->
+<section class="contact" id="contact">
+    <div class="max-width">
+        <h2 class="title">Contact Us</h2>
+        <!-- Start Map -->
+        <div class="map" style="height: 400px; box-shadow: 0px 2px 15px rgb(0 0 0 / 25%);">
+          <iframe style="
+          z-index: 99999;
+          height: 100%;
+          width: 100%;
+          padding: 0px;
+          border-width: 0px;
+          margin: 0px;
+          left: 0px;
+          top: 0px;
+          touch-action: pan-x pan-y; " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.7356852958487!2d31.489496085057542!3d30.58500608168889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7f0546b25bebd%3A0xbcff96029810b0f2!2z2YXYs9iq2LTZgdmK2KfYqiDYrNin2YXYudipINin2YTYstmC2KfYstmK2YI!5e0!3m2!1sar!2seg!4v1647789678699!5m2!1sar!2seg" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <!-- End Map -->
+            <div class="contact-content" style="padding: 30px 0;">
+                <div class="mycolumn left">
+                    <div class="text">Get in Touch</div>
+                    <p>Find the best consultants and all specialities in our Hospital and contact us <br>on our Social Media</p>
+                    <div class="icons">
+                        <div class="myrow">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Phone Number</div>
+                                <div class="sub-title">{{ myInfo.phone_number}}</div>
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address</div>
+                                <div class="sub-title">{{myInfo.place}}</div>
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">{{myInfo.email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="mycolumn right">
+                        <div class="text">Message Us</div>
+                        <form method="POST" >
+                          {% csrf_token %}
+                            <div class="fields">
+                                <div class="field email" style="margin-left:0;">
+                                    <input type="text" name="email" placeholder="Email" required>
+                                </div>
+                                
+                            </div>
+                            <div class="field subject">
+                                <input type="text" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="field textarea">
+                                    <textarea name="message" id="" cols="30" myrows="10" placeholder="Message..."></textarea>
+                                </div>
+                            <div class="button">
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<div class="scroll">
+    <i class="fa fa-angle-up"></i>
+</div>
+<footer>
+  <span>Created By <a href="https://www.facebook.com/mahmoudsyam99/">Our Team</a> | <span class="far fa-copyright"></span>  2022 All rights reserved.</span>
+</footer>
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bxs-home' ></i>&nbsp; All the data about the Rooms</h1>
+                 
+                
+            </div>
+            
+        </form>
+         
+                
+        <h3 style="font-size: 24px;
+        color: #0dcaf0;
+        font-family: -webkit-body;
+        font-weight: 600; ">
+            
+        Hello {{request.user}}
+    </h3>  			
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+    <main></main>
+    
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'roomsearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+    
+    <div class="pages">
+        <form method="POST" enctype="multipart/form-data" class="formroom">
+            {% csrf_token %}  
+                    {{room_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+               
+                <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                    
+            <thead>
+                <tr class="bg-info">
+                    
+                    <th fulltable-field-name="Id_Room">&emsp;&emsp;&emsp;&emsp;  Id &emsp; &emsp;&emsp; <br></th>
+                    <th fulltable-field-name="Id_Floor">&emsp;&emsp; &emsp; &emsp;Num_of_Beds &emsp; &emsp;&emsp;<br> </th>
+                    <th fulltable-field-name="Num_of_Bed">&emsp;&emsp;&emsp; floor_id&emsp;&emsp; <br> </th>
+                    <th fulltable-field-name="Options">&emsp;&emsp;&emsp; Options&emsp;&emsp; <br> </th>
+                    
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in room  %}
+                    
+                <tr class="table-light">
+                            <th>{{r.Id}}</th>
+                            <th>{{r.Num_of_Bed}}</th>
+                            <th>{{r.floor_id}}</th>
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'room_update' r.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'room_delete' r.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+            </tbody>   
+        </table>
+                </form>
+
+                
+                
+                
+      
+        </div>    
+     
+    
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+{% endblock content %}
+
+

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+		
+			<form action="#">
+				<div class="form-input">
+                    
+                      <h1 class="h"><i class='bx bxs-detail' ></i>&nbsp; All the data about the Invoice</h1>
+				</div>
+			</form>
+          
+            <h3 style="font-size: 24px;
+			color: #0dcaf0;
+			font-family: -webkit-body;
+			font-weight: 600;">
+				
+            Hello {{request.user}}
+        </h3>  
+			
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main></main>
+        
+        <center style="text-align: end; margin-bottom: 10px;">
+            <form class="" method="POST" action="{% url 'invsearch' %}" >
+              {% csrf_token %} 
+                <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+                width: 23%;"/>
+                <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+            </form>    
+        </center>
+        
+        <div class="pages_invoice">
+            <form method="POST" enctype="multipart/form-data" class="forminv">
+                {% csrf_token %}  
+                        {{invoice_form}}
+                        <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+                   
+                    <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+                <thead>
+                    <tr class="bg-info">
+                        <th fulltable-field-name="Id">&emsp; Id<br></th>
+                       <th fulltable-field-name="Operation_Cost">&emsp; Operation_Cost <br></th>
+                        <th fulltable-field-name="Bed_Cost">&emsp;Bed_Cost <br> </th>
+                        <th fulltable-field-name="Service_Cost">&emsp;Service_Cost <br></th>
+                        <th fulltable-field-name="Medical_Cost">&emsp;Medical_Cost <br> </th>
+                        <th fulltable-field-name="Lab_Cost">&emsp;Lab_Cost<br> </th>
+                        <th fulltable-field-name="Blood_Cost">&emsp;Blood_Cost<br> </th>                                               
+                        <th fulltable-field-name="Total">&emsp;Total <br> </th> 
+                        <th fulltable-field-name="Status">&emsp;Status <br> </th>
+                        <th fulltable-field-name="Patient_id">&emsp;Patient_id <br> </th>
+                        <th fulltable-field-name="Options">&emsp;&emsp;&emsp; Options&emsp;&emsp; <br> </th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for inv in invoice %}                    
+                            <tr>
+                                <th>{{inv.Id}}</th>
+                                <th>{{inv.Operation_Cost}}</th>
+                                <th>{{inv.Bed_Cost}}</th>
+                                <th>{{inv.Service_Cost}}</th>
+                                <th>{{inv.Medical_Cost}}</th>
+                                <th>{{inv.Lab_Cost}}</th>
+                                <th>{{inv.Blood_Cost}}</th>
+                                <th>{{inv.Total}}</th>
+                                <th>{{inv.Status}}</th>
+                                <th>{{inv.Patient_id}}</th>
+                                
+                                
+                                <th>
+                                    <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'invoice_update' inv.Id %}">Update</a></button>
+                                    <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'invoice_delete' inv.Id %}">Delete</a></button>
+                                </th>
+                            </tr>
+                        
+                    {% endfor %} 
+                </tbody> 
+            </table>
+                    </form>
+
+                    
+            
+            
+          
+            </div>    
+         
+		
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+{% endblock content %}
+
+
+

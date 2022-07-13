@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+    
+        <form action="#">
+            <div class="form-input">
+                
+                
+                <h1 class="h"><i class='bx bxs-user-plus' ></i>&nbsp; All the data about the Birth</h1>
+                
+            </div>
+        </form>
+          
+       
+            <h3 style="font-size: 24px;
+			color: #0dcaf0;
+			font-family: -webkit-body;
+			font-weight: 600;">
+				
+            Hello {{request.user}}
+        </h3>    			
+        
+    </nav>
+    <!-- NAVBAR -->
+
+    <!-- MAIN -->
+
+    <center style="text-align: end; margin-bottom: 10px;">
+        <form class="" method="POST" action="{% url 'birthsearch' %}" >
+          {% csrf_token %} 
+            <input class="form-control " placeholder="search" aria-lable="Search" type="text" , name="searched" style="display: inline;
+            width: 23%;"/>
+            <button type="submit" class="btn btn-outline-secondary" style="margin: 7px 13px;line-height: 1.3;" >Search</button>
+        </form>    
+    </center>
+    
+    <div class="pages_death">
+        <form method="POST" enctype="multipart/form-data" class="formbirth" >
+            {% csrf_token %}  
+                    {{birth_form}}
+                    <button type="submit" class="btn btn-primary" style="margin: 7px 0;line-height: 1;">add</button>
+               
+                <table class="table table-responsive table-active table-striped table-responsive" style="text-align:center;">
+            <thead>
+                <tr class="bg-info">
+                    
+                    <th fulltable-field-name="Id">&emsp; &emsp;Id&emsp; <br></th>
+                    <th fulltable-field-name="Father_Name">&emsp;&emsp;  Father_Name&emsp; <br></th>
+                    <th fulltable-field-name="Mother_Name">&emsp;&emsp;Mother_Name <br> </th>
+                    <th fulltable-field-name="gender">&emsp;Gender <br></th>
+                    <th fulltable-field-name="Blood_Group">&emsp;Blood_Group <br></th>                    
+                    <th fulltable-field-name="Birth_time">&emsp;Birth_time<br> </th>
+                    <th fulltable-field-name="Birth_Date">&emsp;Birth_Date<br> </th>
+                    <th fulltable-field-name="Options">&emsp;Options<br> </th>
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bir in birth  %}
+                    
+                        <tr>
+                            <th>{{bir.Id}}</th>
+                            <th>{{bir.Father_Name}}</th>
+                            <th>{{bir.Mother_Name}}</th>
+                            <th>{{bir.Gender}}</th>
+                            <th>{{bir.Blood_Group}}</th>
+                            <th>{{bir.Birth_time}}</th>
+                            <th>{{bir.Birth_Date}}</th>
+                            <th>
+                                <button type="" class="btn btn-primary" style="line-height: 1;"><a style="color: white; text-decoration: none;" href="{% url 'birth_update' bir.Id %}">Update</a></button>
+                                <button type="" class="btn btn-primary" style="line-height: 1;background: #db2525 !important;border-color: #db2525;"><a style="color: white; text-decoration: none;" href="{% url 'birth_delete' bir.Id %}">Delete</a></button>
+                            </th>
+                        </tr>
+                    
+                {% endfor %} 
+            </tbody>   
+        </table>
+                </form>
+
+                
+        
+        
+      
+    </div>    
+     
+    
+    <!-- MAIN -->
+</section>
+<!-- CONTENT -->
+
+{% endblock content %}
+
+
+

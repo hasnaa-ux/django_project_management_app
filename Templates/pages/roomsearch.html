@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    
+    <br>
+    {% if searched %}
+    <div class="summery_header" style=" text-align: center;margin: 10px;">
+        <h2 style="    text-align: center; margin: 10px 0;display: inline;">" You Searched For {{searched}} "</h2>
+        <a href="{% url 'room' %}" style="float: right;font-size: 19px;background-color: #5dbfe8;color: white;width: 27px;
+                                            height: 27px;
+                                            border-radius: 50%;
+                                            text-align: center;
+                                            margin-right: 17px;">
+          <i class='bx bx-arrow-back'></i>
+           
+        </a>  
+    </div>
+    <br>
+    <table style="text-align:center">
+        <thead>
+            <tr class="bg-info">
+                
+                <th fulltable-field-name="Id_Room">&emsp;&emsp;&emsp;&emsp;  Id &emsp; &emsp;&emsp; <br></th>
+                <th fulltable-field-name="Id_Floor">&emsp;&emsp; &emsp; &emsp;Num_of_Beds &emsp; &emsp;&emsp;<br> </th>
+                <th fulltable-field-name="Num_of_Bed">&emsp;&emsp;&emsp; floor_id&emsp;&emsp; <br> </th>
+                
+                
+                
+            
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for venue in venues   %}
+                <tr class="bg-warning">
+                    <th>{{venue.Id}}</th>
+                    <th>{{venue.Num_of_Bed}}</th>
+                    <th>{{venue.floor_id}}</th>
+                    
+                <tr>    
+            
+            {% endfor %}
+        </tbody> 
+    </table>     
+    {% else %}
+    <div class="summery_header" style=" text-align: center;margin: 10px;">
+        <h2 style="    text-align: center; margin: 10px 0;display: inline;">" Hey! you Forget To Search "</h2>
+        <a href="{% url 'room' %}" style="float: right;font-size: 19px;background-color: #5dbfe8;color: white;width: 27px;
+                                            height: 27px;
+                                            border-radius: 50%;
+                                            text-align: center;
+                                            margin-right: 17px;">
+          <i class='bx bx-arrow-back'></i>
+           
+        </a>  
+    </div>
+    {% endif %}
+
+ 
+
+</center>
+
+{% endblock content %}
+
+
+
+
+
+
+   

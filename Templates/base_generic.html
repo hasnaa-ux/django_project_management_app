@@ -1,0 +1,39 @@
+
+{% extends 'base2.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    .profile-card form .form-group{
+        margin-bottom: 15px;
+    }
+</style>
+</head>    
+<body>
+{% block body %}
+        <section class="login section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="job_details_area">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card-body">
+                            <div class="apply_job_form white-bg">
+                            
+                            {% block content %}
+                            
+                            {% endblock content %}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock body %}
+    </body>
+    </html>

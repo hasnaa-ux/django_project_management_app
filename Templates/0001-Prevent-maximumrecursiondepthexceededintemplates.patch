@@ -1,0 +1,29 @@
+From b61bcd60d9c12da8757107752f1ddd6a1025ae44 Mon Sep 17 00:00:00 2001
+From: Venelin Stoykov <vkstoykov@gmail.com>
+Date: Sat, 6 Sep 2014 20:27:18 +0300
+Subject: [PATCH] Prevent maximum recursion depth exceeded in templates
+
+This can happen when  `django.template.loaders.cached.Loader` is used
+and we have recursion logic in templates.
+---
+ django/template/base.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/django/template/base.py b/django/template/base.py
+index b608367..81f053a 100644
+--- a/django/template/base.py
++++ b/django/template/base.py
+@@ -1210,6 +1210,10 @@ class Library(object):
+             params, varargs, varkw, defaults = getargspec(func)
+ 
+             class InclusionNode(TagHelperNode):
++                # Prevent maximum recursion depth exceeded when
++                # `django.template.loaders.cached.Loader` is used and
++                # we have recursion logic in templates.
++                child_nodelists = ()
+ 
+                 def render(self, context):
+                     resolved_args, resolved_kwargs = self.get_resolved_arguments(context)
+-- 
+1.9.1
+
